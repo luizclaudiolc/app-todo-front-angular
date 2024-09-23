@@ -1,0 +1,65 @@
+<mat-card-content class="container">
+  <mat-card class="card-login">
+    <mat-card-title><p class="card-title">Entrar</p></mat-card-title>
+    <mat-card-content class="conteudo-login">
+      <form [formGroup]="loginUser" novalidate (ngSubmit)="logar()">
+        <!-- Campo de Email -->
+        <mat-form-field appearance="fill" class="form-field-full">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Ex. joaozinho@example.com"
+          />
+          <mat-error
+            *ngIf="
+              loginUser.get('email')?.hasError('email') &&
+              loginUser.get('email')?.touched
+            "
+          >
+            Por favor informe um email válido
+          </mat-error>
+          <mat-error
+            *ngIf="
+              loginUser.get('email')?.hasError('required') &&
+              loginUser.get('email')?.touched
+            "
+          >
+            Email é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Campo de Senha -->
+        <mat-form-field appearance="fill" class="form-field-full">
+          <mat-label>Senha</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="senha"
+            placeholder="Digite sua senha"
+          />
+          <mat-error
+            *ngIf="
+              loginUser.get('senha')?.invalid && loginUser.get('senha')?.touched
+            "
+          >
+            Senha é <strong>obrigatória</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Botão de Entrar -->
+        <mat-card-actions align="end">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="loginUser.invalid"
+          >
+            Entrar
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-card-content>

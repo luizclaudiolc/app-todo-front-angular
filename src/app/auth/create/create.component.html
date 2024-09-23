@@ -1,0 +1,85 @@
+<mat-card-content class="container">
+  <mat-card class="card-create">
+    <mat-card-title><p class="card-title">Criar usuario</p></mat-card-title>
+    <mat-card-content class="conteudo-create">
+      <form [formGroup]="createUser" novalidate (ngSubmit)="criateUser()">
+        <!-- Campo Nome -->
+        <mat-form-field appearance="fill" class="form-field-full">
+          <mat-label>Nome</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="name"
+            placeholder="Ex. João"
+          />
+          <mat-error
+            *ngIf="
+              createUser.get('name')?.hasError('required') &&
+              createUser.get('name')?.touched
+            "
+          >
+            Nome é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Campo de Email -->
+        <mat-form-field appearance="fill" class="form-field-full">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Ex. joaozinho@example.com"
+          />
+          <mat-error
+            *ngIf="
+              createUser.get('email')?.hasError('email') &&
+              createUser.get('email')?.touched
+            "
+          >
+            Por favor informe um email válido
+          </mat-error>
+          <mat-error
+            *ngIf="
+              createUser.get('email')?.hasError('required') &&
+              createUser.get('email')?.touched
+            "
+          >
+            Email é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Campo de Senha -->
+        <mat-form-field appearance="fill" class="form-field-full">
+          <mat-label>Senha</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="senha"
+            placeholder="Digite sua senha"
+          />
+          <mat-error
+            *ngIf="
+              createUser.get('senha')?.invalid &&
+              createUser.get('senha')?.touched
+            "
+          >
+            Senha é <strong>obrigatória</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Botão de Entrar -->
+        <mat-card-actions align="end">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="createUser.invalid"
+          >
+            Entrar
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-card-content>
