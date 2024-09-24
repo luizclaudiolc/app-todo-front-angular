@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUser } from 'src/app/pages/utils/interfaces/IUsers';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-create',
@@ -10,27 +14,38 @@ import { IUser } from 'src/app/pages/utils/interfaces/IUsers';
 export class CreateComponent implements OnInit {
   createUser: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     this.createUser = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
   ngOnInit(): void {}
 
-  criateUser() {
+  createUserValues() {
     if (this.createUser.invalid) return;
     const usuario: IUser = this.createUser.getRawValue();
     console.log(usuario);
 
-    /* this.usuarioService.logar(usuario).subscribe((response) => {
-        if(!response.sucesso){
-          this.snackBar.open('Falha na autenticação', 'Usuário ou senha incorretos.', {
-            duration: 3000
-          });
-        }
-    }) */
+    this.authService.createUser(usuario).subscribe((response) => {
+      console.log(response);
+      if (response) {
+        this.router.navigate(['/login']);
+        this.snackBar.open(
+          `${response['name']}, sua conta foi criada com sucesso! agora, faça o login.`,
+          'X',
+          {
+            duration: 5000,
+          }
+        );
+      }
+    });
   }
 }

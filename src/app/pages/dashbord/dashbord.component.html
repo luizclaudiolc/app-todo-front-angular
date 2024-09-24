@@ -1,0 +1,7 @@
+<h1>Dashboard {{ name }}</h1>
+
+<ng-container *ngFor="let task of tasks">
+  <p>{{ task.title }}</p>
+  <p>{{ task.description }}</p>
+  <p>{{ task.isDone }}</p>
+</ng-container>

@@ -2,7 +2,7 @@
   <mat-card class="card-create">
     <mat-card-title><p class="card-title">Criar usuario</p></mat-card-title>
     <mat-card-content class="conteudo-create">
-      <form [formGroup]="createUser" novalidate (ngSubmit)="criateUser()">
+      <form [formGroup]="createUser" novalidate (ngSubmit)="createUserValues()">
         <!-- Campo Nome -->
         <mat-form-field appearance="fill" class="form-field-full">
           <mat-label>Nome</mat-label>
@@ -55,13 +55,13 @@
           <input
             type="password"
             matInput
-            formControlName="senha"
+            formControlName="password"
             placeholder="Digite sua senha"
           />
           <mat-error
             *ngIf="
-              createUser.get('senha')?.invalid &&
-              createUser.get('senha')?.touched
+              createUser.get('password')?.invalid &&
+              createUser.get('password')?.touched
             "
           >
             Senha é <strong>obrigatória</strong>

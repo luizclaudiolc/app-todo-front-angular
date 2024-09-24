@@ -2,7 +2,7 @@
   <mat-card class="card-login">
     <mat-card-title><p class="card-title">Entrar</p></mat-card-title>
     <mat-card-content class="conteudo-login">
-      <form [formGroup]="loginUser" novalidate (ngSubmit)="logar()">
+      <form [formGroup]="loginUser" novalidate (ngSubmit)="login()">
         <!-- Campo de Email -->
         <mat-form-field appearance="fill" class="form-field-full">
           <mat-label>Email</mat-label>
@@ -36,12 +36,13 @@
           <input
             type="password"
             matInput
-            formControlName="senha"
+            formControlName="password"
             placeholder="Digite sua senha"
           />
           <mat-error
             *ngIf="
-              loginUser.get('senha')?.invalid && loginUser.get('senha')?.touched
+              loginUser.get('password')?.invalid &&
+              loginUser.get('password')?.touched
             "
           >
             Senha é <strong>obrigatória</strong>
