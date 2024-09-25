@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IUser } from '../pages/utils/interfaces/IUsers';
+import { IUser } from '../utils/interfaces/IUsers';
 
 export interface AuthResponse {
   token?: string;

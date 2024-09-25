@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IUser } from 'src/app/pages/utils/interfaces/IUsers';
-import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { tap } from 'rxjs';
+import { Router } from '@angular/router';
+import { IUser } from 'src/app/utils/interfaces/IUsers';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-create',

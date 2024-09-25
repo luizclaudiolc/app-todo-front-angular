@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateComponent } from './auth/create/create.component';
 import { LoginComponent } from './auth/login/login.component';
-import { DashbordComponent } from './pages/dashbord/dashbord.component';
+import { CreateTasksComponent } from './pages/create-tasks/create-tasks.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LoggedUserGuard } from './pages/shared/services/guards/logged-user.guard';
-import { LogoutUserGuard } from './pages/shared/services/guards/logout-user.guard';
+import { LoggedUserGuard } from './shared/services/guards/logged-user.guard';
+import { LogoutUserGuard } from './shared/services/guards/logout-user.guard';
+import { TableTasksComponent } from './pages/table-tasks/table-tasks.component';
 
 const routes: Routes = [
   {
@@ -25,7 +27,17 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashbordComponent,
+    component: DashboardComponent,
+    canActivate: [LoggedUserGuard],
+  },
+  {
+    path: 'create-task',
+    component: CreateTasksComponent,
+    canActivate: [LoggedUserGuard],
+  },
+  {
+    path: 'table-tasks',
+    component: TableTasksComponent,
     canActivate: [LoggedUserGuard],
   },
   {

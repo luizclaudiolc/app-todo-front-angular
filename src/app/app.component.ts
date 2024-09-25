@@ -7,22 +7,8 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  isLogged = false;
-  public userName = '';
+export class AppComponent {
+  constructor() {}
 
-  constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {
-    this.authService.isLogged$.subscribe((isLogged) => {
-      this.isLogged = isLogged;
-      this.userName = this.authService.getUserName;
-
-      if (isLogged) this.router.navigate(['/dashboard']);
-    });
-  }
-
-  public logout(): void {
-    this.authService.logout();
-  }
+  ngOnInit(): void {}
 }

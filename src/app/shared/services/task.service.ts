@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, takeLast, tap } from 'rxjs';
+import { ITask } from 'src/app/utils/interfaces/ITask';
 import { environment } from 'src/environments/environment';
-import { ITask } from '../../utils/interfaces/ITask';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ import { ITask } from '../../utils/interfaces/ITask';
 export class TaskService {
   constructor(private http: HttpClient) {}
 
-  getTasks(): Observable<ITask[]> {
+  getAll(): Observable<ITask[]> {
     return this.http.get<any[]>(`${environment.endpoint.task}`).pipe(
       takeLast(1),
       tap({
@@ -18,5 +18,20 @@ export class TaskService {
         error: (err) => console.log(err),
       })
     );
+  }
+
+  create(task: ITask): Observable<ITask> {
+    return this.http.post<ITask>(`${environment.endpoint.task}`, task);
+  }
+
+  update(taskId: string, task: ITask): Observable<ITask> {
+    return this.http.patch<ITask>(
+      `${environment.endpoint.task}/${taskId}`,
+      task
+    );
+  }
+
+  delete(taskId: string): Observable<ITask> {
+    return this.http.delete<ITask>(`${environment.endpoint.task}/${taskId}`);
   }
 }

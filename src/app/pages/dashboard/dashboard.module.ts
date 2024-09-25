@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashbordComponent } from './dashbord.component';
+import { DashboardComponent } from './dashboard.component';
 
-const AppComponent = [DashbordComponent];
+const AppComponent = [DashboardComponent];
 const ngxModules = [CommonModule];
 
 @NgModule({
@@ -10,4 +10,4 @@ const ngxModules = [CommonModule];
   imports: [...ngxModules],
   exports: [...AppComponent],
 })
-export class DashbordModule {}
+export class DashboardModule {}
