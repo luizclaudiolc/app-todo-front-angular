@@ -8,11 +8,7 @@ import { ITask } from '../../utils/interfaces/ITask';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private taskServico: TaskService) {}
+  constructor() {}
 
-  task: ITask[] = [];
-
-  ngOnInit(): void {
-    console.log('home');
-  }
+  ngOnInit(): void {}
 }

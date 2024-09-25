@@ -1,9 +1,4 @@
-<!-- <mat-spinner *ngIf="!tasksInPage.length" diameter="70"></mat-spinner> -->
-
-<div
-  class="app-container"
-  *ngIf="tasksInPage.length || tasksInPage.length === 0"
->
+<div class="app-container">
   <div class="app-header-container">
     <h2>Lista de tarefas</h2>
     <div class="app-header-content">
@@ -19,7 +14,12 @@
     </div>
   </div>
 
-  <table mat-table [dataSource]="tasksInPage" class="mat-elevation-z8">
+  <table
+    *ngIf="tasksInPage.length > 0"
+    mat-table
+    [dataSource]="tasksInPage"
+    class="mat-elevation-z8"
+  >
     <ng-container *ngFor="let item of columnsTable; let i = index">
       <ng-container
         *ngIf="
@@ -84,7 +84,9 @@
     ></tr>
   </table>
 
+  <!-- Paginator só aparece se houver tarefas -->
   <mat-paginator
+    *ngIf="tasksInPage.length > 0"
     [length]="tasks.length"
     [pageIndex]="pageIndex"
     [pageSize]="pageSize"

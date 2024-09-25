@@ -4,6 +4,7 @@ import { IUser } from 'src/app/utils/interfaces/IUsers';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginUser: FormGroup;
+  isPasswordVisible = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,9 +37,7 @@ export class LoginComponent implements OnInit {
         this.snackBar.open(
           `Seja bem-vindo(a) ao sistema, ${response['name']}!`,
           'x',
-          {
-            duration: 5000,
-          }
+          SNACK_DEFAULT()
         );
       }
     });

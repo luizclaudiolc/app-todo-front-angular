@@ -3,6 +3,7 @@ import { TaskService } from '../../shared/services/task.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask } from '../../utils/interfaces/ITask';
+import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
 
 @Component({
   selector: 'app-create-tasks',
@@ -35,10 +36,7 @@ export class CreateTasksComponent {
     this.taskService.create(task).subscribe({
       next: (task) => {
         this.dialogRef.close();
-        this.snack.open('Tarefa criada!', 'x', {
-          duration: 3000,
-          horizontalPosition: 'right',
-        });
+        this.snack.open('Tarefa criada!', 'x', SNACK_DEFAULT());
       },
       error: (error) =>
         console.error('A tarefa não pode ser criada no menomento.', error),
@@ -55,10 +53,7 @@ export class CreateTasksComponent {
     this.taskService.update(id!, task).subscribe({
       next: (task) => {
         this.dialogRef.close();
-        this.snack.open('Tarefa Atualizada!', 'x', {
-          duration: 3000,
-          horizontalPosition: 'right',
-        });
+        this.snack.open('Tarefa Atualizada!', 'x', SNACK_DEFAULT());
       },
       error: (error) =>
         console.error('A tarefa não pode ser atualizada no menomento.', error),

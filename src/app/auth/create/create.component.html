@@ -53,11 +53,21 @@
         <mat-form-field appearance="fill" class="form-field-full">
           <mat-label>Senha</mat-label>
           <input
-            type="password"
+            [type]="isPasswordVisible ? 'text' : 'password'"
             matInput
             formControlName="password"
             placeholder="Digite sua senha"
           />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="isPasswordVisible = !isPasswordVisible"
+          >
+            <mat-icon>{{
+              isPasswordVisible ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
           <mat-error
             *ngIf="
               createUser.get('password')?.invalid &&

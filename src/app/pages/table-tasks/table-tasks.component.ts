@@ -6,6 +6,7 @@ import { TaskService } from 'src/app/shared/services/task.service';
 import { ITask } from 'src/app/utils/interfaces/ITask';
 import { CreateTasksComponent } from '../create-tasks/create-tasks.component';
 import { PageEvent } from '@angular/material/paginator';
+import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
 
 @Component({
   selector: 'app-table-tasks',
@@ -109,10 +110,7 @@ export class TableTasksComponent {
 
     this.taskService.update(_task.id!, task).subscribe({
       next: (task) => {
-        this.snack.open('Tarefa Atualizada!', 'x', {
-          duration: 3000,
-          horizontalPosition: 'right',
-        });
+        this.snack.open('Tarefa Atualizada!', 'x', SNACK_DEFAULT());
         this.getAllTasks();
       },
       error: (error) =>

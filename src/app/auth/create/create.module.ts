@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CreateComponent } from './create.component';
+import { MatIconModule } from '@angular/material/icon';
 
 const appComponent = [CreateComponent];
 const ngxComponent = [CommonModule];
@@ -18,6 +19,7 @@ const matModules = [
   MatInputModule,
   MatButtonModule,
   MatSnackBarModule,
+  MatIconModule,
 ];
 
 @NgModule({

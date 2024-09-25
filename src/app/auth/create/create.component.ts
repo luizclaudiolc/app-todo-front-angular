@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/utils/interfaces/IUsers';
 import { AuthService } from '../auth.service';
+import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
 
 @Component({
   selector: 'app-create',
@@ -12,6 +13,7 @@ import { AuthService } from '../auth.service';
 })
 export class CreateComponent implements OnInit {
   createUser: FormGroup;
+  isPasswordVisible = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,9 +42,7 @@ export class CreateComponent implements OnInit {
         this.snackBar.open(
           `${response['name']}, sua conta foi criada com sucesso! agora, faça o login.`,
           'X',
-          {
-            duration: 5000,
-          }
+          SNACK_DEFAULT()
         );
       }
     });

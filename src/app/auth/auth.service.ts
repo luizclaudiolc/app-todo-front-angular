@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../utils/interfaces/IUsers';
+import { SNACK_DEFAULT } from '../utils/helpers/helpers';
 
 export interface AuthResponse {
   token?: string;
@@ -37,8 +38,6 @@ export class AuthService {
         tap({
           next: (res: AuthResponse) => {
             if (!res) return;
-            console.log(res);
-
             localStorage.setItem('token', JSON.stringify(res.token));
             localStorage.setItem('user', JSON.stringify(res.name));
 
@@ -53,17 +52,13 @@ export class AuthService {
             this.snackBar.open(
               'Falha ao tentar logar, Este e-mail/senha INCORRETOS!',
               'X',
-              {
-                duration: 3000,
-              }
+              SNACK_DEFAULT('center')
             );
           } else {
             this.snackBar.open(
               'Erro desconhecido',
               'Algo deu errado. Tente novamente mais tarde.',
-              {
-                duration: 3000,
-              }
+              SNACK_DEFAULT()
             );
           }
           // Retorna um Observable vazio para finalizar a stream de erro
@@ -87,20 +82,15 @@ export class AuthService {
             this.snackBar.open(
               'Falha ao criar conta, Este e-mail já está em uso!',
               'X',
-              {
-                duration: 3000,
-              }
+              SNACK_DEFAULT('center')
             );
           } else {
             this.snackBar.open(
               'Erro desconhecido',
               'Algo deu errado. Tente novamente mais tarde.',
-              {
-                duration: 3000,
-              }
+              SNACK_DEFAULT()
             );
           }
-          // Retorna um Observable vazio para finalizar a stream de erro
           return of(null);
         })
       );
