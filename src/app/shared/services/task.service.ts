@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, takeLast, tap } from 'rxjs';
 import { ITask } from 'src/app/utils/interfaces/ITask';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/_environments/environment';
 
 @Injectable({
   providedIn: 'root',
