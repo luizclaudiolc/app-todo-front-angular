@@ -20,10 +20,10 @@ export class TokenInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token');
     const requestUrl: Array<any> = request.url.split('/');
-    const apiUrl: Array<any> = environment.TASK.split('/');
+    const apiUrl: Array<any> = environment.AUTH_LOGIN.split('/');
     console.log({ token, requestUrl: request.url });
 
-    if (token && token && request.url.startsWith(environment.TASK)) {
+    if (token && token && request.url.startsWith(environment.AUTH_LOGIN)) {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,
