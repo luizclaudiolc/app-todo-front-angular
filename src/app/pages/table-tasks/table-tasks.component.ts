@@ -23,6 +23,8 @@ export class TableTasksComponent {
   pageSize: number = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
+  loading = false;
+
   constructor(
     private taskService: TaskService,
     public dialog: MatDialog,
@@ -41,6 +43,7 @@ export class TableTasksComponent {
           next: (tasks: ITask[]) => {
             this.tasks = tasks.sort((a, b) => +a.isDone - +b.isDone);
             this.update();
+            this.loading = true;
           },
         })
       )
