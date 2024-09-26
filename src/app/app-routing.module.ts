@@ -41,11 +41,6 @@ const routes: Routes = [
     canActivate: [LoggedUserGuard],
   },
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'home',
-  },
-  {
     path: '**',
     redirectTo: 'home',
   },
