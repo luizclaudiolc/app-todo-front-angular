@@ -11,7 +11,7 @@ export class TaskService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<ITask[]> {
-    return this.http.get<any[]>(`${environment.endpoint.task}`).pipe(
+    return this.http.get<any[]>(`${environment.TASK}`).pipe(
       takeLast(1),
       tap({
         next: (data) => console.log(data),
@@ -21,17 +21,14 @@ export class TaskService {
   }
 
   create(task: ITask): Observable<ITask> {
-    return this.http.post<ITask>(`${environment.endpoint.task}`, task);
+    return this.http.post<ITask>(`${environment.TASK}`, task);
   }
 
   update(taskId: string, task: ITask): Observable<ITask> {
-    return this.http.patch<ITask>(
-      `${environment.endpoint.task}/${taskId}`,
-      task
-    );
+    return this.http.patch<ITask>(`${environment.TASK}/${taskId}`, task);
   }
 
   delete(taskId: string): Observable<ITask> {
-    return this.http.delete<ITask>(`${environment.endpoint.task}/${taskId}`);
+    return this.http.delete<ITask>(`${environment.TASK}/${taskId}`);
   }
 }
