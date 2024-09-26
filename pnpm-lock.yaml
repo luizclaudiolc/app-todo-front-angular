@@ -41,6 +41,9 @@ importers:
       '@angular/router':
         specifier: ^15.2.0
         version: 15.2.10(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.8.1)(zone.js@0.12.0))(rxjs@7.8.1))(@angular/core@15.2.10(rxjs@7.8.1)(zone.js@0.12.0))(@angular/platform-browser@15.2.10(@angular/animations@15.2.10(@angular/core@15.2.10(rxjs@7.8.1)(zone.js@0.12.0)))(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.8.1)(zone.js@0.12.0))(rxjs@7.8.1))(@angular/core@15.2.10(rxjs@7.8.1)(zone.js@0.12.0)))(rxjs@7.8.1)
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
       rxjs:
         specifier: ~7.8.0
         version: 7.8.1
@@ -1902,6 +1905,10 @@ packages:
 
   domutils@2.8.0:
     resolution: {integrity: sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A==}
+
+  dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -6571,6 +6578,8 @@ snapshots:
       dom-serializer: 1.4.1
       domelementtype: 2.3.0
       domhandler: 4.3.1
+
+  dotenv@16.4.5: {}
 
   eastasianwidth@0.2.0: {}
 
