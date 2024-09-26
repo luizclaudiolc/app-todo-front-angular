@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, of, tap } from 'rxjs';
-import { environment } from 'src/_environments/environment';
+import { environment } from 'src/environments/environment';
 import { IUser } from '../utils/interfaces/IUsers';
 import { SNACK_DEFAULT } from '../utils/helpers/helpers';
 

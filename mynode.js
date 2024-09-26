@@ -10,7 +10,7 @@ const envFile = `export const environment = {
     TASK: '${process.env.TASK}',
 };
 `;
-const targetPath = path.join(__dirname, "./src/_environments/environment.ts");
+const targetPath = path.join(__dirname, "./src/environments/environment.ts");
 fs.writeFile(targetPath, envFile, (err) => {
   if (err) {
     console.error(err);
