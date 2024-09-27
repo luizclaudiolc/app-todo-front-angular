@@ -31,7 +31,6 @@ export class DashboardComponent implements OnInit {
           tasks.filter(({ isDone }) => isDone === false).length,
           tasks.length,
         ];
-        console.log(this.taskDone);
 
         this.dataConcluidas = this.parseData(
           tasks || 0,

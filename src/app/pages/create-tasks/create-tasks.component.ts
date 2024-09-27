@@ -11,7 +11,11 @@ import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
   styleUrls: ['./create-tasks.component.scss'],
 })
 export class CreateTasksComponent {
-  task: any = {};
+  task: ITask = {
+    title: '',
+    description: '',
+    isDone: false,
+  };
   editMode = false;
 
   constructor(
@@ -28,11 +32,10 @@ export class CreateTasksComponent {
 
   ngOnInit(): void {
     if (this.data) this.task = this.data;
-    console.log(this.task);
   }
 
   private addTask(): void {
-    const task: ITask = { ...this.task, isDone: false };
+    const task: ITask = { ...this.task };
     this.taskService.create(task).subscribe({
       next: (task) => {
         this.dialogRef.close();
@@ -44,6 +47,8 @@ export class CreateTasksComponent {
   }
 
   private updateTask(id: string | undefined): void {
+    console.log(id);
+
     const { title, description, isDone } = this.task;
     const task: ITask = {
       title,
@@ -61,11 +66,11 @@ export class CreateTasksComponent {
   }
 
   addOurEditTask(): void {
-    this.editMode ? this.updateTask(this.task.id) : this.addTask();
+    this.editMode ? this.updateTask(this.task.publicId) : this.addTask();
   }
 
   verifyInputs(): boolean {
-    return this.task.title && this.task.description;
+    return !!(this.task.title && this.task.description);
   }
 
   closeDialog(): void {

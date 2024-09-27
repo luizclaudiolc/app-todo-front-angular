@@ -38,7 +38,7 @@ export class PieChartComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes) {
+    if (changes && this.data[0]) {
       const { selectName, total, Selectdvalue, color, title, restName } =
         this.data[0];
       this.percentage = this.transformPercentual(
@@ -66,12 +66,10 @@ export class PieChartComponent implements OnInit, OnChanges {
   }
 
   mouseLeave($event: MouseEvent) {
-    console.log($event);
     this.arcWidth = 0.1;
   }
 
   mouseEnter($event: MouseEvent) {
-    console.log($event);
     this.arcWidth = 0.15;
   }
 

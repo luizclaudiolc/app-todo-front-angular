@@ -21,7 +21,6 @@ export class TokenInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('token');
     const requestUrl: Array<any> = request.url.split('/');
     const apiUrl: Array<any> = environment.TASK.split('/');
-    console.log({ token, requestUrl: request.url });
 
     if (token && token && request.url.startsWith(environment.TASK)) {
       request = request.clone({

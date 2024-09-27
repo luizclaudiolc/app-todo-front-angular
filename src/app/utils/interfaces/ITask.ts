@@ -1,5 +1,5 @@
 export interface ITask {
-  id?: string;
+  publicId?: string;
   title: string;
   description: string;
   isDone: boolean;

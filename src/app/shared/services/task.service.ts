@@ -11,13 +11,7 @@ export class TaskService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<ITask[]> {
-    return this.http.get<any[]>(`${environment.TASK}`).pipe(
-      takeLast(1),
-      tap({
-        next: (data) => console.log(data),
-        error: (err) => console.log(err),
-      })
-    );
+    return this.http.get<ITask[]>(`${environment.TASK}`);
   }
 
   create(task: ITask): Observable<ITask> {
