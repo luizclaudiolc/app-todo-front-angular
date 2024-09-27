@@ -35,7 +35,7 @@ export class CreateTasksComponent {
   }
 
   private addTask(): void {
-    const task: ITask = { ...this.task };
+    const task = this.task;
     this.taskService.create(task).subscribe({
       next: (task) => {
         this.dialogRef.close();
@@ -46,9 +46,7 @@ export class CreateTasksComponent {
     });
   }
 
-  private updateTask(id: string | undefined): void {
-    console.log(id);
-
+  private updateTask(id: string): void {
     const { title, description, isDone } = this.task;
     const task: ITask = {
       title,
@@ -66,7 +64,7 @@ export class CreateTasksComponent {
   }
 
   addOurEditTask(): void {
-    this.editMode ? this.updateTask(this.task.publicId) : this.addTask();
+    this.editMode ? this.updateTask(this.task.id!) : this.addTask();
   }
 
   verifyInputs(): boolean {
