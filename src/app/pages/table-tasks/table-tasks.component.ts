@@ -76,7 +76,7 @@ export class TableTasksComponent {
   }
 
   deleteTask(task: ITask): void {
-    const { publicId: _id, title } = task;
+    const { id: _id, title } = task;
     const deleteConfirm = window.confirm(
       `Tem certeza que quer excluir a tarefa: ${title}`
     );
@@ -84,7 +84,7 @@ export class TableTasksComponent {
     if (deleteConfirm) {
       this.taskService.delete(_id!).subscribe({
         next: () => {
-          this.tasks = this.tasks.filter(({ publicId }) => publicId !== _id);
+          this.tasks = this.tasks.filter(({ id }) => id !== _id);
           this.getAllTasks();
         },
       });
@@ -111,7 +111,7 @@ export class TableTasksComponent {
       isDone,
     };
 
-    this.taskService.update(_task.publicId!, task).subscribe({
+    this.taskService.update(_task.id!, task).subscribe({
       next: (task) => {
         this.snack.open('Tarefa Atualizada!', 'x', SNACK_DEFAULT());
         this.getAllTasks();
