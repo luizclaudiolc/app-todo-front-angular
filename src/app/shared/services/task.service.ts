@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { ITask } from 'src/app/utils/interfaces/ITask';
-import { environment } from 'src/environments/environment';
-import { catchError, retry, timeout } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable, throwError } from "rxjs";
+import { ITask } from "src/app/utils/interfaces/ITask";
+import { environment } from "src/environments/environment";
+import { catchError, timeout, retryWhen, delay, take } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class TaskService {
   private readonly TIMEOUT = 15000;
@@ -18,12 +18,17 @@ export class TaskService {
       timeout(this.TIMEOUT),
       catchError((error) => {
         console.error(
-          'Erro: Servidor demorou mais de 15 segundos para responder.',
-          error
+          "Erro: Servidor demorou mais de 15 segundos para responder.",
+          error,
         );
-        return throwError(() => new Error('Tempo limite excedido'));
+        return throwError(() => new Error("Tempo limite excedido"));
       }),
-      retry({ count: 1, delay: 1000 })
+      retryWhen((errors) =>
+        errors.pipe(
+          delay(1000), // Atraso de 1 segundo entre as tentativas
+          take(2), // Tenta 2 vezes no total (1 tentativa + 1 retry)
+        ),
+      ),
     );
   }
 
@@ -32,12 +37,12 @@ export class TaskService {
       timeout(this.TIMEOUT),
       catchError((error) => {
         console.error(
-          'Erro: Servidor demorou mais de 15 segundos para responder.',
-          error
+          "Erro: Servidor demorou mais de 15 segundos para responder.",
+          error,
         );
-        return throwError(() => new Error('Tempo limite excedido'));
+        return throwError(() => new Error("Tempo limite excedido"));
       }),
-      retry({ count: 1, delay: 1000 })
+      retryWhen((errors) => errors.pipe(delay(1000), take(2))),
     );
   }
 
@@ -46,12 +51,12 @@ export class TaskService {
       timeout(this.TIMEOUT),
       catchError((error) => {
         console.error(
-          'Erro: Servidor demorou mais de 15 segundos para responder.',
-          error
+          "Erro: Servidor demorou mais de 15 segundos para responder.",
+          error,
         );
-        return throwError(() => new Error('Tempo limite excedido'));
+        return throwError(() => new Error("Tempo limite excedido"));
       }),
-      retry({ count: 1, delay: 1000 })
+      retryWhen((errors) => errors.pipe(delay(1000), take(2))),
     );
   }
 
@@ -60,12 +65,12 @@ export class TaskService {
       timeout(this.TIMEOUT),
       catchError((error) => {
         console.error(
-          'Erro: Servidor demorou mais de 15 segundos para responder.',
-          error
+          "Erro: Servidor demorou mais de 15 segundos para responder.",
+          error,
         );
-        return throwError(() => new Error('Tempo limite excedido'));
+        return throwError(() => new Error("Tempo limite excedido"));
       }),
-      retry({ count: 1, delay: 1000 })
+      retryWhen((errors) => errors.pipe(delay(1000), take(2))),
     );
   }
 }

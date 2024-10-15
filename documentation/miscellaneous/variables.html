@@ -1,0 +1,1172 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app-todo-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">app-todo-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#appComponent" title="src/app/auth/create/create.module.ts" ><b>appComponent</b>&nbsp;&nbsp;&nbsp;(src/.../create.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appComponent" title="src/app/auth/login/login.module.ts" ><b>appComponent</b>&nbsp;&nbsp;&nbsp;(src/.../login.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appComponent" title="src/app/pages/home/home.module.ts" ><b>appComponent</b>&nbsp;&nbsp;&nbsp;(src/.../home.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appComponent" title="src/app/pages/table-tasks/table-tasks.module.ts" ><b>appComponent</b>&nbsp;&nbsp;&nbsp;(src/.../table-tasks.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appComponent" title="src/app/shared/header/header.module.ts" ><b>appComponent</b>&nbsp;&nbsp;&nbsp;(src/.../header.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appComponent" title="src/app/shared/pie-chart/pie-chart.module.ts" ><b>appComponent</b>&nbsp;&nbsp;&nbsp;(src/.../pie-chart.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AppComponent" title="src/app/pages/dashboard/dashboard.module.ts" ><b>AppComponent</b>&nbsp;&nbsp;&nbsp;(src/.../dashboard.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appComponents" title="src/app/pages/create-tasks/create-tasks.module.ts" ><b>appComponents</b>&nbsp;&nbsp;&nbsp;(src/.../create-tasks.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appModules" title="src/app/app.module.ts" ><b>appModules</b>&nbsp;&nbsp;&nbsp;(src/.../app.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appModules" title="src/app/pages/dashboard/dashboard.module.ts" ><b>appModules</b>&nbsp;&nbsp;&nbsp;(src/.../dashboard.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.prod.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#INTERCEPTORRS" title="src/app/app.module.ts" ><b>INTERCEPTORRS</b>&nbsp;&nbsp;&nbsp;(src/.../app.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#matModules" title="src/app/auth/create/create.module.ts" ><b>matModules</b>&nbsp;&nbsp;&nbsp;(src/.../create.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#matModules" title="src/app/auth/login/login.module.ts" ><b>matModules</b>&nbsp;&nbsp;&nbsp;(src/.../login.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#matModules" title="src/app/pages/create-tasks/create-tasks.module.ts" ><b>matModules</b>&nbsp;&nbsp;&nbsp;(src/.../create-tasks.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#matModules" title="src/app/pages/dashboard/dashboard.module.ts" ><b>matModules</b>&nbsp;&nbsp;&nbsp;(src/.../dashboard.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#matModules" title="src/app/pages/home/home.module.ts" ><b>matModules</b>&nbsp;&nbsp;&nbsp;(src/.../home.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#matModules" title="src/app/pages/table-tasks/table-tasks.module.ts" ><b>matModules</b>&nbsp;&nbsp;&nbsp;(src/.../table-tasks.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#matModules" title="src/app/shared/header/header.module.ts" ><b>matModules</b>&nbsp;&nbsp;&nbsp;(src/.../header.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ngModules" title="src/app/shared/header/header.module.ts" ><b>ngModules</b>&nbsp;&nbsp;&nbsp;(src/.../header.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ngxComponent" title="src/app/auth/create/create.module.ts" ><b>ngxComponent</b>&nbsp;&nbsp;&nbsp;(src/.../create.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ngxComponent" title="src/app/auth/login/login.module.ts" ><b>ngxComponent</b>&nbsp;&nbsp;&nbsp;(src/.../login.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ngxComponent" title="src/app/pages/home/home.module.ts" ><b>ngxComponent</b>&nbsp;&nbsp;&nbsp;(src/.../home.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ngxModeles" title="src/app/app.module.ts" ><b>ngxModeles</b>&nbsp;&nbsp;&nbsp;(src/.../app.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ngxModeles" title="src/app/pages/table-tasks/table-tasks.module.ts" ><b>ngxModeles</b>&nbsp;&nbsp;&nbsp;(src/.../table-tasks.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ngxModules" title="src/app/pages/create-tasks/create-tasks.module.ts" ><b>ngxModules</b>&nbsp;&nbsp;&nbsp;(src/.../create-tasks.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ngxModules" title="src/app/pages/dashboard/dashboard.module.ts" ><b>ngxModules</b>&nbsp;&nbsp;&nbsp;(src/.../dashboard.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NgxModules" title="src/app/shared/pie-chart/pie-chart.module.ts" ><b>NgxModules</b>&nbsp;&nbsp;&nbsp;(src/.../pie-chart.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SNACK_DEFAULT" title="src/app/utils/helpers/helpers.ts" ><b>SNACK_DEFAULT</b>&nbsp;&nbsp;&nbsp;(src/.../helpers.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/auth/create/create.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appComponent"></a>
+                    <span class="name">
+                        <span ><b>appComponent</b></span>
+                        <a href="#appComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CreateComponent]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matModules"></a>
+                    <span class="name">
+                        <span ><b>matModules</b></span>
+                        <a href="#matModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  FormsModule,
+  ReactiveFormsModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatSnackBarModule,
+  MatIconModule,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngxComponent"></a>
+                    <span class="name">
+                        <span ><b>ngxComponent</b></span>
+                        <a href="#ngxComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CommonModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/auth/login/login.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appComponent"></a>
+                    <span class="name">
+                        <span ><b>appComponent</b></span>
+                        <a href="#appComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[LoginComponent]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matModules"></a>
+                    <span class="name">
+                        <span ><b>matModules</b></span>
+                        <a href="#matModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  FormsModule,
+  ReactiveFormsModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatIconModule,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngxComponent"></a>
+                    <span class="name">
+                        <span ><b>ngxComponent</b></span>
+                        <a href="#ngxComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CommonModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/home/home.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appComponent"></a>
+                    <span class="name">
+                        <span ><b>appComponent</b></span>
+                        <a href="#appComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[HomeComponent]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matModules"></a>
+                    <span class="name">
+                        <span ><b>matModules</b></span>
+                        <a href="#matModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[MatToolbarModule, MatIconModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngxComponent"></a>
+                    <span class="name">
+                        <span ><b>ngxComponent</b></span>
+                        <a href="#ngxComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CommonModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/table-tasks/table-tasks.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appComponent"></a>
+                    <span class="name">
+                        <span ><b>appComponent</b></span>
+                        <a href="#appComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[TableTasksComponent]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matModules"></a>
+                    <span class="name">
+                        <span ><b>matModules</b></span>
+                        <a href="#matModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  MatFormFieldModule,
+  MatIconModule,
+  FormsModule,
+  MatPaginatorModule,
+  MatDialogModule,
+  MatTableModule,
+  MatSelectModule,
+  MatInputModule,
+  MatListModule,
+  MatDividerModule,
+  MatButtonModule,
+  MatExpansionModule,
+  MatCheckboxModule,
+  MatSnackBarModule,
+  MatProgressSpinnerModule,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngxModeles"></a>
+                    <span class="name">
+                        <span ><b>ngxModeles</b></span>
+                        <a href="#ngxModeles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CommonModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/header/header.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appComponent"></a>
+                    <span class="name">
+                        <span ><b>appComponent</b></span>
+                        <a href="#appComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[AppHeaderComponent]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matModules"></a>
+                    <span class="name">
+                        <span ><b>matModules</b></span>
+                        <a href="#matModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  MatMenuModule,
+  MatTooltipModule,
+  MatIconModule,
+  FlexLayoutModule,
+  MatButtonModule,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngModules"></a>
+                    <span class="name">
+                        <span ><b>ngModules</b></span>
+                        <a href="#ngModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CommonModule, RouterModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/pie-chart/pie-chart.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appComponent"></a>
+                    <span class="name">
+                        <span ><b>appComponent</b></span>
+                        <a href="#appComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[PieChartComponent]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NgxModules"></a>
+                    <span class="name">
+                        <span ><b>NgxModules</b></span>
+                        <a href="#NgxModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CommonModule, NgxChartsModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/dashboard/dashboard.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AppComponent"></a>
+                    <span class="name">
+                        <span ><b>AppComponent</b></span>
+                        <a href="#AppComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[DashboardComponent]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appModules"></a>
+                    <span class="name">
+                        <span ><b>appModules</b></span>
+                        <a href="#appModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[PieChartModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matModules"></a>
+                    <span class="name">
+                        <span ><b>matModules</b></span>
+                        <a href="#matModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[MatCardModule, MatIconModule, MatProgressSpinnerModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngxModules"></a>
+                    <span class="name">
+                        <span ><b>ngxModules</b></span>
+                        <a href="#ngxModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CommonModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/create-tasks/create-tasks.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appComponents"></a>
+                    <span class="name">
+                        <span ><b>appComponents</b></span>
+                        <a href="#appComponents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CreateTasksComponent]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matModules"></a>
+                    <span class="name">
+                        <span ><b>matModules</b></span>
+                        <a href="#matModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  FormsModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatSnackBarModule,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngxModules"></a>
+                    <span class="name">
+                        <span ><b>ngxModules</b></span>
+                        <a href="#ngxModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CommonModule]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/app.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appModules"></a>
+                    <span class="name">
+                        <span ><b>appModules</b></span>
+                        <a href="#appModules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  AppHeaderModule,
+  HomeModule,
+  DashboardModule,
+  LoginModule,
+  CreateModule,
+  CreateTasksModule,
+  TableTasksModule,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="INTERCEPTORRS"></a>
+                    <span class="name">
+                        <span ><b>INTERCEPTORRS</b></span>
+                        <a href="#INTERCEPTORRS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: HTTP_INTERCEPTORS,
+  useClass: TokenInterceptor,
+  multi: true,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngxModeles"></a>
+                    <span class="name">
+                        <span ><b>ngxModeles</b></span>
+                        <a href="#ngxModeles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  HttpClientModule,
+  BrowserModule,
+  AppRoutingModule,
+  BrowserAnimationsModule,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.prod.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  production: true,
+  AUTH_CREATE: &#x27;&#x27;,
+  AUTH_LOGIN: &#x27;&#x27;,
+  TASK: &#x27;&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    AUTH_CREATE: &#x27;http://api-app-todo.onrender.com/api/v2/auth/create&#x27;,
+    AUTH_LOGIN: &#x27;http://api-app-todo.onrender.com/api/v2/auth/login&#x27;,
+    TASK: &#x27;http://api-app-todo.onrender.com/api/v2/task&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/utils/helpers/helpers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SNACK_DEFAULT"></a>
+                    <span class="name">
+                        <span ><b>SNACK_DEFAULT</b></span>
+                        <a href="#SNACK_DEFAULT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(
+  position: MatSnackBarHorizontalPosition &#x3D; &#x27;right&#x27;
+): MatSnackBarConfig &#x3D;&gt; {
+  return {
+    duration: 3000,
+    horizontalPosition: position,
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

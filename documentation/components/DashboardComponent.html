@@ -1,0 +1,1139 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app-todo-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">app-todo-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DashboardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/dashboard/dashboard.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dashboard</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dashboard.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dashboard.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allTasks" >allTasks</a>
+                            </li>
+                            <li>
+                                <a href="#dataAFazer" >dataAFazer</a>
+                            </li>
+                            <li>
+                                <a href="#dataAll" >dataAll</a>
+                            </li>
+                            <li>
+                                <a href="#dataConcluidas" >dataConcluidas</a>
+                            </li>
+                            <li>
+                                <a href="#taskDone" >taskDone</a>
+                            </li>
+                            <li>
+                                <a href="#taskNotDone" >taskNotDone</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getLengthTask" >getLengthTask</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#parseData" >parseData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(taskService: <a href="../injectables/TaskService.html" target="_self">TaskService</a>, cdr: ChangeDetectorRef)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>taskService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskService.html" target="_self" >TaskService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cdr</td>
+                                                  
+                                                        <td>
+                                                                    <code>ChangeDetectorRef</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLengthTask"></a>
+                    <span class="name">
+                        <span ><b>getLengthTask</b></span>
+                        <a href="#getLengthTask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getLengthTask(tasks: <a href="../interfaces/ITask.html" target="_self">ITask[]</a>, value: boolean | "all")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tasks</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ITask.html" target="_self" >ITask[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>boolean | &quot;all&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseData"></a>
+                    <span class="name">
+                        <span ><b>parseData</b></span>
+                        <a href="#parseData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseData(tasks: <a href="../interfaces/ITask.html" target="_self">ITask[]</a>, title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, selectName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, restName: string | string, tasksLength: boolean | "all", color: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tasks</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ITask.html" target="_self" >ITask[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>title</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>selectName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>restName</td>
+                                            <td>
+                                                        <code>string | string</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>tasksLength</td>
+                                            <td>
+                                                        <code>boolean | &quot;all&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>color</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IPieData.html" target="_self" >IPieData[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allTasks"></a>
+                    <span class="name">
+                        <span ><b>allTasks</b></span>
+                        <a href="#allTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataAFazer"></a>
+                    <span class="name">
+                        <span ><b>dataAFazer</b></span>
+                        <a href="#dataAFazer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IPieData.html" target="_self" >IPieData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataAll"></a>
+                    <span class="name">
+                        <span ><b>dataAll</b></span>
+                        <a href="#dataAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IPieData.html" target="_self" >IPieData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataConcluidas"></a>
+                    <span class="name">
+                        <span ><b>dataConcluidas</b></span>
+                        <a href="#dataConcluidas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IPieData.html" target="_self" >IPieData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskDone"></a>
+                    <span class="name">
+                        <span ><b>taskDone</b></span>
+                        <a href="#taskDone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskNotDone"></a>
+                    <span class="name">
+                        <span ><b>taskNotDone</b></span>
+                        <a href="#taskNotDone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/dashboard/dashboard.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Component, OnInit } from &#x27;@angular/core&#x27;;
+import { TaskService } from &#x27;../../shared/services/task.service&#x27;;
+import { ITask } from &#x27;../../utils/interfaces/ITask&#x27;;
+import { take } from &#x27;rxjs&#x27;;
+import { AuthService } from &#x27;src/app/auth/auth.service&#x27;;
+import { IPieData } from &#x27;src/app/shared/pie-chart/pie-chart.component&#x27;;
+
+@Component({
+  selector: &#x27;app-dashboard&#x27;,
+  templateUrl: &#x27;./dashboard.component.html&#x27;,
+  styleUrls: [&#x27;./dashboard.component.scss&#x27;],
+})
+export class DashboardComponent implements OnInit {
+  taskDone: number &#x3D; 0;
+  taskNotDone: number &#x3D; 0;
+  allTasks: number &#x3D; 0;
+  dataConcluidas: IPieData[] &#x3D; [];
+  dataAFazer: IPieData[] &#x3D; [];
+  dataAll: IPieData[] &#x3D; [];
+
+  constructor(
+    private taskService: TaskService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
+    this.taskService.getAll().subscribe({
+      next: (tasks) &#x3D;&gt; {
+        [this.taskDone, this.taskNotDone, this.allTasks] &#x3D; [
+          tasks.filter(({ isDone }) &#x3D;&gt; isDone &#x3D;&#x3D;&#x3D; true).length,
+          tasks.filter(({ isDone }) &#x3D;&gt; isDone &#x3D;&#x3D;&#x3D; false).length,
+          tasks.length,
+        ];
+
+        this.dataConcluidas &#x3D; this.parseData(
+          tasks || 0,
+          &#x27;Concluídas&#x27;,
+          &#x27;Concluídas&#x27;,
+          &#x27;A Fazer&#x27;,
+          true,
+          &#x27;#2d884d&#x27;
+        );
+        this.dataAFazer &#x3D; this.parseData(
+          tasks,
+          &#x27;A fazer&#x27;,
+          &#x27;A fazer&#x27;,
+          &#x27;Concluídas&#x27;,
+          false,
+          &#x27;#b34045&#x27;
+        );
+        this.dataAll &#x3D; this.parseData(
+          tasks,
+          &#x27;Total de todas as tarefas&#x27;,
+          &#x27;Total de todas as tarefas&#x27;,
+          &#x27;&#x27;,
+          &#x27;all&#x27;,
+          &#x27;#4091d7&#x27;
+        );
+
+        this.cdr.detectChanges();
+      },
+    });
+  }
+
+  getLengthTask(tasks: ITask[], value: boolean | &#x27;all&#x27;): number {
+    return value &#x3D;&#x3D;&#x3D; &#x27;all&#x27;
+      ? tasks.length
+      : tasks.filter(({ isDone }) &#x3D;&gt; isDone &#x3D;&#x3D;&#x3D; value).length;
+  }
+
+  parseData(
+    tasks: ITask[],
+    title: string,
+    selectName: string,
+    restName: string | &#x27;&#x27;,
+    tasksLength: boolean | &#x27;all&#x27;,
+    color: string
+  ): IPieData[] {
+    return [
+      {
+        title,
+        selectName,
+        Selectdvalue: this.getLengthTask(tasks, tasksLength),
+        restName,
+        total: this.getLengthTask(tasks, &#x27;all&#x27;),
+        color,
+        description:
+          tasksLength &#x3D;&#x3D;&#x3D; &#x27;all&#x27;
+            ? &#x60;Todas as tarefas: ${this.getLengthTask(tasks, &#x27;all&#x27;)}&#x60;
+            : &#x27;&#x27;,
+      },
+    ];
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;app-container&quot;&gt;
+  &lt;mat-card class&#x3D;&quot;app-info-card mat-elevation-z6&quot;&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;taskNotDone&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;app-title-card&quot;&gt;Tarefas a fazer&lt;/mat-card-header&gt;
+      &lt;mat-card-content class&#x3D;&quot;app-content-card&quot;&gt;
+        &lt;mat-icon class&#x3D;&quot;app-icon-not-done&quot;&gt;notification_important&lt;/mat-icon&gt;
+        &lt;p class&#x3D;&quot;app-task-not-done&quot;&gt;{{ taskNotDone }}&lt;/p&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/ng-container&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!taskNotDone&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;app-title-card&quot;&gt;Tarefas a fazer&lt;/mat-card-header&gt;
+      &lt;mat-card-content class&#x3D;&quot;app-content-card&quot;&gt;
+        &lt;mat-icon class&#x3D;&quot;app-icon-not-done&quot;&gt;notification_important&lt;/mat-icon&gt;
+        &lt;p class&#x3D;&quot;app-task-not-done&quot;&gt;{{ taskNotDone }}&lt;/p&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/ng-container&gt;
+  &lt;/mat-card&gt;
+
+  &lt;mat-card class&#x3D;&quot;app-info-card&quot;&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;taskDone&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;app-title-card&quot;
+        &gt;Tarefas concluidas&lt;/mat-card-header
+      &gt;
+      &lt;mat-card-content class&#x3D;&quot;app-content-card&quot;&gt;
+        &lt;mat-icon class&#x3D;&quot;app-icon-done&quot;&gt;checklist&lt;/mat-icon&gt;
+        &lt;p class&#x3D;&quot;app-task-done&quot;&gt;{{ taskDone }}&lt;/p&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/ng-container&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!taskDone&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;app-title-card&quot;
+        &gt;Tarefas concluidas&lt;/mat-card-header
+      &gt;
+      &lt;mat-card-content class&#x3D;&quot;app-content-card&quot;&gt;
+        &lt;mat-icon class&#x3D;&quot;app-icon-done&quot;&gt;checklist&lt;/mat-icon&gt;
+        &lt;p class&#x3D;&quot;app-task-done&quot;&gt;{{ taskDone }}&lt;/p&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/ng-container&gt;
+  &lt;/mat-card&gt;
+
+  &lt;mat-card class&#x3D;&quot;app-info-card&quot;&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;allTasks&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;app-title-card&quot;&gt;Total de tarefas&lt;/mat-card-header&gt;
+      &lt;mat-card-content class&#x3D;&quot;app-content-card&quot;&gt;
+        &lt;mat-icon class&#x3D;&quot;app-icon-all-task&quot;&gt;task_alt&lt;/mat-icon&gt;
+        &lt;p class&#x3D;&quot;app-all-task&quot;&gt;{{ allTasks }}&lt;/p&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/ng-container&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!allTasks&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;app-title-card&quot;&gt;Total de tarefas&lt;/mat-card-header&gt;
+      &lt;mat-card-content class&#x3D;&quot;app-content-card&quot;&gt;
+        &lt;mat-icon class&#x3D;&quot;app-icon-all-task&quot;&gt;task_alt&lt;/mat-icon&gt;
+        &lt;p class&#x3D;&quot;app-all-task&quot;&gt;{{ allTasks }}&lt;/p&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/ng-container&gt;
+  &lt;/mat-card&gt;
+
+  &lt;mat-card class&#x3D;&quot;app-chart-card&quot;&gt;
+    &lt;mat-card-content class&#x3D;&quot;app-content-card&quot;&gt;
+      &lt;ng-container
+        *ngIf&#x3D;&quot;dataAFazer &amp;&amp; dataConcluidas &amp;&amp; dataAll; else spinner&quot;
+      &gt;
+        &lt;app-pie-chart [app-data]&#x3D;&quot;dataAFazer&quot;&gt;&lt;/app-pie-chart&gt;
+        &lt;app-pie-chart [app-data]&#x3D;&quot;dataConcluidas&quot;&gt;&lt;/app-pie-chart&gt;
+        &lt;app-pie-chart [app-data]&#x3D;&quot;dataAll&quot;&gt;&lt;/app-pie-chart&gt;
+      &lt;/ng-container&gt;
+    &lt;/mat-card-content&gt;
+  &lt;/mat-card&gt;
+
+  &lt;ng-template #spinner&gt;
+    &lt;mat-spinner class&#x3D;&quot;app-spinner&quot; diameter&#x3D;&quot;40&quot;&gt;&lt;/mat-spinner&gt;
+  &lt;/ng-template&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./dashboard.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$task-not-done: #b34045;
+$task-done: #2d884d;
+$all-tasks: #4091d7;
+
+.app-container {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .app-info-card {
+    flex: auto;
+    margin: 10px;
+    min-width: 200px;
+    max-width: 400px;
+    height: 150px;
+
+    .app-title-card {
+      font-size: 1.4em;
+      font-weight: 400;
+      justify-content: center;
+    }
+
+    .app-content-card {
+      display: flex;
+      flex: auto;
+      padding: 15px;
+      align-items: center;
+      justify-content: space-evenly;
+      font-weight: 400;
+      font-size: 4.5em;
+
+      mat-icon {
+        font-size: 50pt;
+        width: auto;
+        height: auto;
+        margin-right: 1.2rem;
+      }
+
+      &amp; .app-task-done,
+      .app-icon-done {
+        color: $task-done;
+      }
+
+      &amp; .app-task-not-done,
+      .app-icon-not-done {
+        color: $task-not-done;
+      }
+
+      &amp; .app-all-task,
+      .app-icon-all-task {
+        color: $all-tasks;
+      }
+    }
+  }
+
+  .app-chart-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+    align-items: center;
+    width: 700px;
+    min-width: 300px;
+    height: auto;
+    flex: auto;
+
+    .app-content-card {
+      display: flex;
+      flex: auto;
+      padding: 15px;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  }
+
+  mat-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="app-container">  <mat-card class="app-info-card mat-elevation-z6">    <ng-container *ngIf="taskNotDone">      <mat-card-header class="app-title-card">Tarefas a fazer</mat-card-header>      <mat-card-content class="app-content-card">        <mat-icon class="app-icon-not-done">notification_important</mat-icon>        <p class="app-task-not-done">{{ taskNotDone }}</p>      </mat-card-content>    </ng-container>    <ng-container *ngIf="!taskNotDone">      <mat-card-header class="app-title-card">Tarefas a fazer</mat-card-header>      <mat-card-content class="app-content-card">        <mat-icon class="app-icon-not-done">notification_important</mat-icon>        <p class="app-task-not-done">{{ taskNotDone }}</p>      </mat-card-content>    </ng-container>  </mat-card>  <mat-card class="app-info-card">    <ng-container *ngIf="taskDone">      <mat-card-header class="app-title-card"        >Tarefas concluidas</mat-card-header      >      <mat-card-content class="app-content-card">        <mat-icon class="app-icon-done">checklist</mat-icon>        <p class="app-task-done">{{ taskDone }}</p>      </mat-card-content>    </ng-container>    <ng-container *ngIf="!taskDone">      <mat-card-header class="app-title-card"        >Tarefas concluidas</mat-card-header      >      <mat-card-content class="app-content-card">        <mat-icon class="app-icon-done">checklist</mat-icon>        <p class="app-task-done">{{ taskDone }}</p>      </mat-card-content>    </ng-container>  </mat-card>  <mat-card class="app-info-card">    <ng-container *ngIf="allTasks">      <mat-card-header class="app-title-card">Total de tarefas</mat-card-header>      <mat-card-content class="app-content-card">        <mat-icon class="app-icon-all-task">task_alt</mat-icon>        <p class="app-all-task">{{ allTasks }}</p>      </mat-card-content>    </ng-container>    <ng-container *ngIf="!allTasks">      <mat-card-header class="app-title-card">Total de tarefas</mat-card-header>      <mat-card-content class="app-content-card">        <mat-icon class="app-icon-all-task">task_alt</mat-icon>        <p class="app-all-task">{{ allTasks }}</p>      </mat-card-content>    </ng-container>  </mat-card>  <mat-card class="app-chart-card">    <mat-card-content class="app-content-card">      <ng-container        *ngIf="dataAFazer && dataConcluidas && dataAll; else spinner"      >        <app-pie-chart [app-data]="dataAFazer"></app-pie-chart>        <app-pie-chart [app-data]="dataConcluidas"></app-pie-chart>        <app-pie-chart [app-data]="dataAll"></app-pie-chart>      </ng-container>    </mat-card-content>  </mat-card>  <ng-template #spinner>    <mat-spinner class="app-spinner" diameter="40"></mat-spinner>  </ng-template></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppHeaderComponent', 'selector': 'app-header'},{'name': 'CreateComponent', 'selector': 'app-create'},{'name': 'CreateTasksComponent', 'selector': 'app-create-tasks'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PieChartComponent', 'selector': 'app-pie-chart'},{'name': 'TableTasksComponent', 'selector': 'app-table-tasks'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashboardComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

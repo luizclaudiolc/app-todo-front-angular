@@ -18,7 +18,10 @@
   </ng-container>
 
   <span class="app-icon-center" fxFlex fxLayoutAlign="center">
-    <a routerLink="/" matTooltip="Voltar a Home">
+    <a
+      [routerLink]="isLogged ? '/table-tasks' : '/'"
+      [matTooltip]="isLogged ? 'Tarefas' : 'Home'"
+    >
       <img
         src="https://play-lh.googleusercontent.com/pjUulZ-Vdo7qPKxk3IRhnk8SORPlgSydSyYEjm7fGcoXO8wDyYisWXwQqEjMryZ_sqK2"
         alt="logo"
