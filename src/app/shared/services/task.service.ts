@@ -15,7 +15,7 @@ export class TaskService {
 
   getAll(): Observable<ITask[]> {
     return this.http.get<ITask[]>(`${environment.TASK}`).pipe(
-      timeout(this.TIMEOUT),
+      // timeout(this.TIMEOUT),
       catchError((error) => {
         console.error(
           "Erro: Servidor demorou mais de 15 segundos para responder.",
@@ -34,7 +34,7 @@ export class TaskService {
 
   create(task: ITask): Observable<ITask> {
     return this.http.post<ITask>(`${environment.TASK}`, task).pipe(
-      timeout(this.TIMEOUT),
+      // timeout(this.TIMEOUT),
       catchError((error) => {
         console.error(
           "Erro: Servidor demorou mais de 15 segundos para responder.",
@@ -48,7 +48,7 @@ export class TaskService {
 
   update(taskId: string, task: ITask): Observable<ITask> {
     return this.http.patch<ITask>(`${environment.TASK}/${taskId}`, task).pipe(
-      timeout(this.TIMEOUT),
+      // timeout(this.TIMEOUT),
       catchError((error) => {
         console.error(
           "Erro: Servidor demorou mais de 15 segundos para responder.",
@@ -62,7 +62,7 @@ export class TaskService {
 
   delete(taskId: string): Observable<ITask> {
     return this.http.delete<ITask>(`${environment.TASK}/${taskId}`).pipe(
-      timeout(this.TIMEOUT),
+      // timeout(this.TIMEOUT),
       catchError((error) => {
         console.error(
           "Erro: Servidor demorou mais de 15 segundos para responder.",
