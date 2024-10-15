@@ -14,7 +14,22 @@ export class TaskService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<ITask[]> {
-    return this.http.get<ITask[]>(`${environment.TASK}`);
+    return this.http.get<ITask[]>(`${environment.TASK}`).pipe(
+      // timeout(this.TIMEOUT),
+      catchError((error) => {
+        console.error(
+          "Erro: Servidor demorou mais de 15 segundos para responder.",
+          error,
+        );
+        return throwError(() => new Error("Tempo limite excedido"));
+      }),
+      retryWhen((errors) =>
+        errors.pipe(
+          delay(1000), // Atraso de 1 segundo entre as tentativas
+          take(2), // Tenta 2 vezes no total (1 tentativa + 1 retry)
+        ),
+      ),
+    );
   }
 
   create(task: ITask): Observable<ITask> {
