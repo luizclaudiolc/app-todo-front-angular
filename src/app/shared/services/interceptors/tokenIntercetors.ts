@@ -1,16 +1,12 @@
-import { environment } from "src/environments/environment";
-import { Injectable } from "@angular/core";
 import {
-  HttpEvent,
-  HttpInterceptor,
-  HttpHandler,
-  HttpRequest,
-  HttpErrorResponse,
+    HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 } from "@angular/common/http";
-import { Observable, of } from "rxjs";
-import { catchError, switchMap } from "rxjs/operators";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { throwError } from "rxjs/internal/observable/throwError";
+import { catchError, switchMap } from "rxjs/operators";
 import { AuthService } from "src/app/auth/auth.service";
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IUser } from 'src/app/utils/interfaces/IUsers';
-import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
+import { sanetizedName, SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
+import { IUser } from 'src/app/utils/interfaces/IUsers';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(usuario).subscribe((response) => {
       if (response) {
         this.snackBar.open(
-          `Seja bem-vindo(a) ao sistema, ${response['name']}!`,
+          `Seja bem-vindo(a) ao sistema, ${sanetizedName(response['name'])}!`,
           'x',
           SNACK_DEFAULT()
         );

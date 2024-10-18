@@ -1,9 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { TaskService } from '../../shared/services/task.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ITask } from '../../utils/interfaces/ITask';
 import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
+import { TaskService } from '../../shared/services/task.service';
+import { ITask } from '../../utils/interfaces/ITask';
 
 @Component({
   selector: 'app-create-tasks',

@@ -4,8 +4,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { BehaviorSubject, catchError, Observable, of, tap } from "rxjs";
 import { environment } from "src/environments/environment";
+import { sanetizedName, SNACK_DEFAULT } from "../utils/helpers/helpers";
 import { IUser } from "../utils/interfaces/IUsers";
-import { SNACK_DEFAULT } from "../utils/helpers/helpers";
 
 export interface AuthResponse {
   accessToken?: string;
@@ -121,7 +121,9 @@ export class AuthService {
 
   get getUserName(): string {
     const unserName = localStorage.getItem("user");
-    return unserName ? JSON.parse(unserName) : null;
+    const name = unserName ? JSON.parse(unserName) : null;
+    const _sanetizedName = sanetizedName(name);
+    return _sanetizedName;
   }
 
   get getUserToken(): string {

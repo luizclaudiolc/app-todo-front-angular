@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { sanetizedName, SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
 import { IUser } from 'src/app/utils/interfaces/IUsers';
 import { AuthService } from '../auth.service';
-import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
 
 @Component({
   selector: 'app-create',
@@ -33,14 +33,12 @@ export class CreateComponent implements OnInit {
   createUserValues() {
     if (this.createUser.invalid) return;
     const usuario: IUser = this.createUser.getRawValue();
-    console.log(usuario);
 
     this.authService.createUser(usuario).subscribe((response) => {
-      console.log(response);
       if (response) {
         this.router.navigate(['/login']);
         this.snackBar.open(
-          `${response['name']}, sua conta foi criada com sucesso! agora, faça o login.`,
+          `${sanetizedName(response['name'])}, sua conta foi criada com sucesso! agora, faça o login.`,
           'X',
           SNACK_DEFAULT()
         );
