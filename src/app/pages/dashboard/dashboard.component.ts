@@ -1,9 +1,12 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  type OnInit,
+} from '@angular/core';
+import type { IPieData } from 'src/app/shared/pie-chart/pie-chart.component';
 import { TaskService } from '../../shared/services/task.service';
-import { ITask } from '../../utils/interfaces/ITask';
-import { take } from 'rxjs';
-import { AuthService } from 'src/app/auth/auth.service';
-import { IPieData } from 'src/app/shared/pie-chart/pie-chart.component';
+import type { ITask } from '../../utils/interfaces/ITask';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,17 +14,15 @@ import { IPieData } from 'src/app/shared/pie-chart/pie-chart.component';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  taskDone: number = 0;
-  taskNotDone: number = 0;
-  allTasks: number = 0;
+  @Inject(TaskService) taskService!: TaskService;
+  @Inject(ChangeDetectorRef) cdr!: ChangeDetectorRef;
+
+  taskDone = 0;
+  taskNotDone = 0;
+  allTasks = 0;
   dataConcluidas: IPieData[] = [];
   dataAFazer: IPieData[] = [];
   dataAll: IPieData[] = [];
-
-  constructor(
-    private taskService: TaskService,
-    private cdr: ChangeDetectorRef
-  ) {}
 
   ngOnInit(): void {
     this.taskService.getAll().subscribe({

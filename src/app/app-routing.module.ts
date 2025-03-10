@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, type Routes } from '@angular/router';
 import { CreateComponent } from './auth/create/create.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateTasksComponent } from './pages/create-tasks/create-tasks.component';

@@ -1,6 +1,6 @@
-import {
-    MatSnackBarConfig,
-    MatSnackBarHorizontalPosition
+import type {
+  MatSnackBarConfig,
+  MatSnackBarHorizontalPosition,
 } from '@angular/material/snack-bar';
 
 export const SNACK_DEFAULT = (
@@ -12,10 +12,9 @@ export const SNACK_DEFAULT = (
   };
 };
 
-
 export const sanetizedName = (getUserName: string): string => {
   return getUserName
     ?.split(' ')
     .map((str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`)
     .join(' ');
-}
+};

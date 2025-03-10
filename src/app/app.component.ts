@@ -8,7 +8,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
-
   ngOnInit(): void {}
 }

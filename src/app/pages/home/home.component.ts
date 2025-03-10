@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../../shared/services/task.service';
-import { ITask } from '../../utils/interfaces/ITask';
+import { Component, type OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +6,5 @@ import { ITask } from '../../utils/interfaces/ITask';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
-
   ngOnInit(): void {}
 }

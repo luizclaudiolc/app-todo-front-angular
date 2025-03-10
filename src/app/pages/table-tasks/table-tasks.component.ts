@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import type { PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { tap } from 'rxjs';
 import { TaskService } from 'src/app/shared/services/task.service';
-import { ITask } from 'src/app/utils/interfaces/ITask';
-import { CreateTasksComponent } from '../create-tasks/create-tasks.component';
-import { PageEvent } from '@angular/material/paginator';
 import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
+import type { ITask } from 'src/app/utils/interfaces/ITask';
+import { CreateTasksComponent } from '../create-tasks/create-tasks.component';
 
 @Component({
   selector: 'app-table-tasks',
@@ -14,22 +14,20 @@ import { SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
   styleUrls: ['./table-tasks.component.scss'],
 })
 export class TableTasksComponent {
+  @Inject(TaskService) taskService!: TaskService;
+  @Inject(MatDialog) dialog!: MatDialog;
+  @Inject(MatSnackBar) snack!: MatSnackBar;
+
   tasks: ITask[] = [];
   columnsTable: string[] = ['isDone', 'title', 'description', 'actions'];
   columnsTableHeader: string[] = ['Feito', 'Tarefa', 'Descrição', 'Ações'];
   tasksInPage: ITask[] = [];
-  lowValue: number = 0;
-  pageIndex: number = 0;
-  pageSize: number = 10;
+  lowValue = 0;
+  pageIndex = 0;
+  pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
   loading = false;
-
-  constructor(
-    private taskService: TaskService,
-    public dialog: MatDialog,
-    private snack: MatSnackBar
-  ) {}
 
   ngOnInit(): void {
     this.getAllTasks();
@@ -50,9 +48,10 @@ export class TableTasksComponent {
       .subscribe();
   }
 
-  searchTask(event: any): void {
+  searchTask(event: KeyboardEvent): void {
     const toLowerCase = (value: string) => value.toLocaleLowerCase();
-    const text = toLowerCase(event.target.value.trim());
+    const input = event.target as HTMLInputElement;
+    const text = toLowerCase(input.value.trim());
     const dataFiltered = this.tasks.filter(({ title, description }) => {
       return (
         toLowerCase(title).includes(text) ||
@@ -82,6 +81,7 @@ export class TableTasksComponent {
     );
 
     if (deleteConfirm) {
+      // biome-ignore lint: forbidden
       this.taskService.delete(_id!).subscribe({
         next: () => {
           this.tasks = this.tasks.filter(({ id }) => id !== _id);
@@ -111,6 +111,7 @@ export class TableTasksComponent {
       isDone,
     };
 
+    // biome-ignore lint: forbidden
     this.taskService.update(_task.id!, task).subscribe({
       next: (task) => {
         this.snack.open('Tarefa Atualizada!', 'x', SNACK_DEFAULT());
