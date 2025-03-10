@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, type OnInit } from '@angular/core';
+import { FormBuilder, type FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { sanetizedName, SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
-import { IUser } from 'src/app/utils/interfaces/IUsers';
+import { SNACK_DEFAULT, sanetizedName } from 'src/app/utils/helpers/helpers';
+import type { IUser } from 'src/app/utils/interfaces/IUsers';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -16,8 +16,8 @@ export class CreateComponent implements OnInit {
   isPasswordVisible = false;
 
   constructor(
-    private formBuilder: FormBuilder,
     private authService: AuthService,
+    private formBuilder: FormBuilder,
     private router: Router,
     private snackBar: MatSnackBar
   ) {
@@ -34,15 +34,20 @@ export class CreateComponent implements OnInit {
     if (this.createUser.invalid) return;
     const usuario: IUser = this.createUser.getRawValue();
 
-    this.authService.createUser(usuario).subscribe((response) => {
-      if (response) {
-        this.router.navigate(['/login']);
-        this.snackBar.open(
-          `${sanetizedName(response['name'])}, sua conta foi criada com sucesso! agora, faça o login.`,
-          'X',
-          SNACK_DEFAULT()
-        );
-      }
-    });
+    this.authService
+      .createUser(usuario)
+      .subscribe((response: IUser[] | null) => {
+        if (response && response.length > 0) {
+          this.router.navigate(['/login']);
+          this.snackBar.open(
+            `${sanetizedName(
+              // biome-ignore lint:
+              response[0].name!
+            )}, sua conta foi criada com sucesso! agora, faça o login.`,
+            'X',
+            SNACK_DEFAULT()
+          );
+        }
+      });
   }
 }

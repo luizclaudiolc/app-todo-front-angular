@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, type OnInit } from '@angular/core';
+import { FormBuilder, type FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { sanetizedName, SNACK_DEFAULT } from 'src/app/utils/helpers/helpers';
-import { IUser } from 'src/app/utils/interfaces/IUsers';
+import { SNACK_DEFAULT, sanetizedName } from 'src/app/utils/helpers/helpers';
+import type { IUser } from 'src/app/utils/interfaces/IUsers';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   isPasswordVisible = false;
 
   constructor(
-    private formBuilder: FormBuilder,
     private authService: AuthService,
+    private formBuilder: FormBuilder,
     private router: Router,
     private snackBar: MatSnackBar
   ) {
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(usuario).subscribe((response) => {
       if (response) {
         this.snackBar.open(
-          `Seja bem-vindo(a) ao sistema, ${sanetizedName(response['name'])}!`,
+          `Seja bem-vindo(a) ao sistema, ${sanetizedName(response.name)}!`,
           'x',
           SNACK_DEFAULT()
         );
