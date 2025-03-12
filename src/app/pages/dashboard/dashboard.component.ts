@@ -14,8 +14,13 @@ import type { ITask } from '../../utils/interfaces/ITask';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  @Inject(TaskService) taskService!: TaskService;
-  @Inject(ChangeDetectorRef) cdr!: ChangeDetectorRef;
+  // @Inject(TaskService) taskService!: TaskService;
+  // @Inject(ChangeDetectorRef) cdr!: ChangeDetectorRef;
+
+  constructor(
+    private taskService: TaskService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   taskDone = 0;
   taskNotDone = 0;
