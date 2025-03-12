@@ -14,9 +14,11 @@ import { CreateTasksComponent } from '../create-tasks/create-tasks.component';
   styleUrls: ['./table-tasks.component.scss'],
 })
 export class TableTasksComponent {
-  @Inject(TaskService) taskService!: TaskService;
-  @Inject(MatDialog) dialog!: MatDialog;
-  @Inject(MatSnackBar) snack!: MatSnackBar;
+  constructor(
+    private taskService: TaskService,
+    private dialog: MatDialog,
+    private snack: MatSnackBar
+  ) {}
 
   tasks: ITask[] = [];
   columnsTable: string[] = ['isDone', 'title', 'description', 'actions'];

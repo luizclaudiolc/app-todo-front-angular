@@ -18,14 +18,14 @@ export class CreateTasksComponent {
   };
   editMode = false;
 
+  @Inject(MAT_DIALOG_DATA) public data!: ITask;
   constructor(
     private taskService: TaskService,
     private dialogRef: MatDialogRef<CreateTasksComponent>,
-    private snack: MatSnackBar,
-    @Inject(MAT_DIALOG_DATA) public data: ITask
+    private snack: MatSnackBar
   ) {
-    if (data) {
-      this.task = data;
+    if (this.data) {
+      this.task = this.data;
       this.editMode = true;
     }
   }
@@ -53,6 +53,7 @@ export class CreateTasksComponent {
       description,
       isDone,
     };
+    // biome-ignore lint:no-non-null-assertion
     this.taskService.update(id!, task).subscribe({
       next: (task) => {
         this.dialogRef.close();
@@ -64,6 +65,7 @@ export class CreateTasksComponent {
   }
 
   addOurEditTask(): void {
+    // biome-ignore lint:no-non-null-assertion
     this.editMode ? this.updateTask(this.task.id!) : this.addTask();
   }
 
