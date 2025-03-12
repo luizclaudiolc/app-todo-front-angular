@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import type { Observable } from 'rxjs';
@@ -19,12 +19,13 @@ export interface AuthResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  @Inject(HttpClient) private http!: HttpClient;
-  @Inject(Router) private router!: Router;
-  @Inject(MatSnackBar) private snackBar!: MatSnackBar;
   public loggedInSubject: BehaviorSubject<boolean>;
 
-  constructor() {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     this.loggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   }
 

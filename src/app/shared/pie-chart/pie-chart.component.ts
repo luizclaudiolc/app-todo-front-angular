@@ -18,22 +18,23 @@ export interface IPieData {
   description?: string;
 }
 
+interface ISingle {
+  name: string;
+  value: string;
+}
+
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss'],
 })
 export class PieChartComponent implements OnInit, OnChanges {
-  percentage: string = '';
+  percentage = '';
   @Input('app-data') data: IPieData[] = [];
 
-  single: any[] = [];
+  single: ISingle[] = [];
   colorScheme!: Color;
   arcWidth = 0.1;
-
-  constructor() {
-    // Object.assign(this, { this: this.single });
-  }
 
   ngOnInit(): void {}
 

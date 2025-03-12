@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/auth/auth.service';
 
-
 export interface ItemsMenu {
   label: string;
   icon?: string;
@@ -20,10 +19,7 @@ export class AppHeaderComponent implements OnInit {
   isLogged = false;
   userName = '';
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-  ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.isLogged$.subscribe((isLogged: boolean) => {
@@ -37,16 +33,15 @@ export class AppHeaderComponent implements OnInit {
       {
         label: 'Tarefas',
         icon: 'task',
-        link: 'table-tasks'
+        link: 'table-tasks',
       },
       {
         label: 'Dashboard',
         icon: 'dashboard',
-        link: 'dashboard'
+        link: 'dashboard',
       },
     ];
   }
-
 
   public logout(): void {
     this.authService.logout();
