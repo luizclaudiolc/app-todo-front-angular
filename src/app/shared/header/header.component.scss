@@ -1,31 +1,35 @@
-$text-color: #191717;
-$base-color: #F1EFEF;
-$focus-color: #CCC8AA;
-$position-color: #7D7C7C;
-
-.app-container {
-  width: 100%;
-  background-color: $base-color;
-  padding: 5px;
-
-  .app-icon-center {
-    margin-top: 8px;
-
-    img {
-      width: 30px;
-      height: 30px;
-    }
-  }
+.toolbar-background {
+  @apply bg-zinc-700;
 }
 
-.app-icon {
-  color: $position-color;
+.toolbar-container {
+  @apply container mx-auto px-4 py-2 flex justify-between items-baseline;
 }
 
-.app-menu-label {
-  color: $text-color;
+.flex-center {
+  @apply flex items-center;
 }
 
-.router-link-active {
-  background: $base-color;
+.menu-button {
+  @apply text-white hover:text-amber-600;
+}
+
+.logo-link {
+  @apply ml-4 text-xl font-bold text-gray-800;
+}
+
+.logo-image {
+  @apply w-[30px] h-[30px];
+}
+
+.nav-links {
+  @apply flex items-center space-x-4;
+}
+
+.nav-link {
+  @apply text-white hover:text-amber-600 cursor-pointer ease-in;
+}
+
+.login-link {
+  @apply text-white hover:text-amber-600 ease-in;
 }
